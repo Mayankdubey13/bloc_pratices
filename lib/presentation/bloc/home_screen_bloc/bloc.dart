@@ -21,47 +21,18 @@ class GetBloc extends Bloc<GetEvent,GetState> {
     on<GetIntialEvent>(getInitialEvent);
      on<GetAddMoreData>(getAddMoreData);
 
-    // on<InternetLossedEvent>(internetLossedEvent);
-    // on<InternetGainedEvent>(internetGainedEcent);
-
-    // connectivitySubscription =
-    //     connectivity.onConnectivityChanged.listen((result) {
-    //       debugPrint("==============?$result");
-    //       if (result == ConnectivityResult.mobile ||
-    //           result == ConnectivityResult.wifi) {
-    //         add(GetIntialEvent());
-    //       } else {
-    //         add(InternetLossedEvent());
-    //       }
-    //     });
   }
-
   GetRespository getRespository = GetRespositoryImpl();
 
   FutureOr<void> getInitialEvent(GetIntialEvent event, Emitter<GetState> emit) async{
     try {
       emit(GetLoadingState());
       List<dynamic> data = await getRespository.getApi(page:page);
-    //  await getRepository.getApi(page: event.page);
-    // print(saveDataList);
-    //   final boxes = Boxes.getData();
-    //   List.generate(boxes.length, (index) {
-    //       Boxes.deleteData(index);
-    //   });
-     // final box = Boxes.getData();
      list = data.map((e){
        saveDataList.add(SaveData.fromJson(e));
-     //  final box = Boxes.getData();
-     //  box.add(saveData);
-       //dynamic saveData = SaveData.fromJson(e);
        box.put("data save", saveDataList);
-       // Save JSON data to Hive
-       //saveData.save();
-      // print(jsonEncode(box.getAt(0)));
-      // print(e);
         return UserDataModel.fromJson(e);
       }).toList();
-     //print(list.runtimeType);
       emit(GetLoaderState(beers: list));
     }
     catch(e){
@@ -73,10 +44,7 @@ class GetBloc extends Bloc<GetEvent,GetState> {
       List<dynamic> data =  await getRespository.getApi(page: ++page);
       List<UserDataModel> myResponse = data.map((e){
         saveDataList.add(SaveData.fromJson(e));
-       // dynamic saveData = SaveData.fromJson(e);
-       // final box = Boxes.getData();
         box.put("data save",saveDataList); // Save JSON data to Hive
-      //  saveData.save();
         return UserDataModel.fromJson(e);
       }).toList();
       list.addAll(myResponse);
@@ -86,14 +54,5 @@ class GetBloc extends Bloc<GetEvent,GetState> {
          emit(GetErrorState(error: e.toString()));
     }
   }
-  // FutureOr<void> internetGainedEcent(
-  //     InternetGainedEvent event, Emitter<GetState> emit) {
-  //   emit(InternetGainedState());
-  // }
-  //
-  // FutureOr<void> internetLossedEvent(
-  //     InternetLossedEvent event, Emitter<GetState> emit) {
-  //   emit(InternetLossedState());
-  // }
 
 }

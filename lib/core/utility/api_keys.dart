@@ -1,0 +1,30 @@
+class HeaderConstants {
+  static const contentTypeApplicationJson = "application/json";
+  static const contentTypeURLEncoded = "application/x-www-form-urlencoded";
+  static const authorization = "Authorization";
+  static const bearer = "Bearer ";
+  static const cookie = "Cookie";
+  static const contentTypeKey = "Content-Type";
+  static const cookieValue =
+      "f314fdc0d37aae64a8467c224bf23546=dfdb290db5c68ef9c681ed0ab595dce5";
+  static const String contentType = 'Content-Type';
+  static const String applicationJson = 'application/json';
+  static const String formData = 'multipart/form-data';
+  static const String accept = 'Accept';
+  static const String xApiToken = 'X-Api-Token';
+  static const String xApiTokenValue = '06d9db395ddb9cd49f71b2c91351e76b74a615ad';
+  static const String apiKey = 'api_key';
+  static const String userAgent = 'User-Agent';
+  static const String clientID = 'client_id';
+  static const String clientSecret = 'client_secret';
+  static const String grantType = 'grant_type';
+  static const String deviceId = "DeviceId";
+  static const String appVersion = "AppVersion";
+  static const String platform = "Platform";
+  static const String deviceLang = "DeviceLang";
+  static const String pushToken = "PushToken";
+  static const clientId = "client_id";
+  static const username = "username";
+  static const password = "password";
+  static const refreshToken="refresh_token";
+}

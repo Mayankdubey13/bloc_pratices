@@ -38,7 +38,6 @@ class InternetBloc extends Bloc<InternetEvent, InternetState> {
 
   FutureOr<void> internetGainedEcent(
       InternetGainedEvent event, Emitter<InternetState> emit) {
-
           emit(InternetGainedState());
   }
 

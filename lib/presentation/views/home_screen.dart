@@ -17,6 +17,7 @@ class HomeScreen extends StatefulWidget{
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
   @override
   int page=1;
   GetBloc getBloc = GetBloc();
